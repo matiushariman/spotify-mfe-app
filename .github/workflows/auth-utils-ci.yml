@@ -27,9 +27,9 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ env.cache-name }}-${{ github.ref_name }}-${{ hashFiles('**/yarn.lock.json') }}
+          key: ${{ runner.os }}-modules-${{ env.cache-name }}-${{ github.ref_name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-modules-${{ env.cache-name }}-${{ github.ref_name }}-${{ hashFiles('**/yarn.lock.json') }}
+            ${{ runner.os }}-modules-${{ env.cache-name }}-${{ github.ref_name }}-${{ hashFiles('**/yarn.lock') }}
             ${{ runner.os }}-modules-${{ env.cache-name }}-${{ github.ref_name }}
       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         name: Install dependencies
