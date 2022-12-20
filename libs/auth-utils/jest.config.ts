@@ -12,4 +12,12 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/libs/auth-utils',
+  setupFilesAfterEnv: ['./jest.setup.ts'],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    './src/lib/**',
+    '!./src/**/index.ts',
+    '!./src/lib/**/*.spec.ts.*',
+  ],
+  coverageReporters: ['json', ['text', { skipFull: true }]],
 };
