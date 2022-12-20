@@ -12,7 +12,6 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/libs/auth-utils',
-  setupFilesAfterEnv: ['./jest.setup.ts'],
   collectCoverage: true,
   collectCoverageFrom: [
     './src/lib/**',
