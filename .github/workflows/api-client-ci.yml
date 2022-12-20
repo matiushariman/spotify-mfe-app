@@ -2,6 +2,8 @@ name: API Client CI
 
 on:
   push:
+    branches-ignore:
+      - '!main'
     paths:
       - 'libs/api-client/**/*.ts'
       - '.github/workflows/api-client-ci.yml'
