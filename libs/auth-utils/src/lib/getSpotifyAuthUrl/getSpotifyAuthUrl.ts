@@ -1,6 +1,6 @@
 import type { GetSpotifyAuthUrlParams } from './getSpotifyAuthUrl.types';
 export const getSpotifyAuthUrl = ({
-  redirectUri,
+  redirectUri = 'http://localhost:4200/callback/',
   clientId,
 }: GetSpotifyAuthUrlParams) => {
   const authorizationUrl = 'https://accounts.spotify.com/authorize';
