@@ -9,8 +9,10 @@
     "lint": "nx lint",
     "test:all": "nx run-many --target=test",
     "test:api-client": "yarn test api-client",
+    "test:auth-utils": "yarn test auth-utils",
     "lint:all": "nx run-many --target=lint",
-    "lint:api-client": "yarn lint api-client"
+    "lint:api-client": "yarn lint api-client",
+    "lint:auth-utils": "yarn lint auth-utils"
   },
   "private": true,
   "dependencies": {
@@ -20,7 +22,8 @@
     "react-dom": "18.2.0",
     "react-router-dom": "6.4.3",
     "regenerator-runtime": "0.13.7",
-    "tslib": "2.3.0"
+    "tslib": "2.3.0",
+    "typescript-cookie": "1.0.4"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
