@@ -1,0 +1,64 @@
+name: Shell MFE CI
+
+on:
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - 'apps/shell/**/*.ts'
+      - '.github/workflows/shell-mfe-ci.yml'
+
+jobs:
+  run-lint-and-test:
+    name: Run lint & unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-modules-${{ env.cache-name }}-
+            ${{ runner.os }}-modules-
+            ${{ runner.os }}-
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run lint
+        run: yarn lint:shell
+      - name: Run unit test
+        run: yarn test:shell
+      - name: Upload coverage as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage/**
+  upload-coverage:
+    name: Upload coverage to codecov
+    runs-on: ubuntu-latest
+    needs: run-lint-and-test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Download coverage from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage
+          path: coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: '**/coverage/apps/shell/coverage-final.json'
+          flags: shell
+

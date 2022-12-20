@@ -14,6 +14,7 @@ jest.mock('@spotify-mfe-app/auth-utils', () => ({
     .mockReturnValueOnce(false)
     .mockReturnValueOnce(false)
     .mockReturnValueOnce(true),
+  getSpotifyAuthUrl: jest.fn().mockReturnValue('https://spotify.com/'),
 }));
 describe('app/app.utils', () => {
   describe('shouldLogintoSpotify()', () => {
