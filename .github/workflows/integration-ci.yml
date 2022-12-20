@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'apps/**/*.ts'
+      - 'libs/**/*.ts'
+      - '.github/workflows/integration-ci.yml'
 
 jobs:
   run-lint-and-test:
