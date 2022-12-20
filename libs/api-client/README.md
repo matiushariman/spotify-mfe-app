@@ -1,5 +1,8 @@
 # @spotify-mfe-app/api-client
 
+<img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=api-client" alt="api client coverage" />
+
+
 Typescript-based API Client for calling Spotify Web API.
 
 

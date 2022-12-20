@@ -1,4 +1,33 @@
-# SpotifyMfeApp
+# Spotify MFE App
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Overall</th>
+      <th>MFE</th>
+      <th colspan="2">Libs</th>
+    </tr>
+    <tr>
+      <th>Shell</th>
+      <th>api-client</th>
+      <th>auth-utils</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg" alt="overall coverage" />
+      </td>
+      <td align="center">-</td>
+      <td align="center">
+        <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=api-client" alt="api client coverage" />
+      </td>
+      <td align="center">
+        <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=auth-utils" alt="auth utils coverage" />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <a href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
