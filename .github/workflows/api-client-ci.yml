@@ -2,8 +2,9 @@ name: API Client CI
 
 on:
   push:
-    branches:
-      - '*/api-client*'
+    paths:
+      - 'libs/api-client/**/*.ts'
+      - '.github/workflows/api-client-ci.yml'
 
 jobs:
   init:
