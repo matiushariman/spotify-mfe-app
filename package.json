@@ -6,7 +6,9 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "test:api-client": "yarn test api-client"
+    "lint": "nx lint",
+    "test:api-client": "yarn test api-client",
+    "lint:api-client": "yarn lint api-client"
   },
   "private": true,
   "dependencies": {
