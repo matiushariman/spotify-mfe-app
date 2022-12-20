@@ -1,0 +1,15 @@
+name: API Client CI
+
+on:
+  push:
+    branches:
+      - '*/api-client*'
+
+jobs:
+  init:
+    name: test initial workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test workflow
+        run: echo "Hello world"
+
