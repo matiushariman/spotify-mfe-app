@@ -7,7 +7,9 @@
     "build": "nx build",
     "test": "nx test",
     "lint": "nx lint",
+    "test:all": "nx run-many --target=test",
     "test:api-client": "yarn test api-client",
+    "lint:all": "nx run-many --target=lint",
     "lint:api-client": "yarn lint api-client"
   },
   "private": true,
