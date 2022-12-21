@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 
-import { server } from './src/server';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { server } from '../../libs/api-client/src/mocks/server';
 
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());
