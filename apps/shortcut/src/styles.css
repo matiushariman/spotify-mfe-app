@@ -5,6 +5,6 @@
 
 @layer components {
   #root {
-    @apply text-white bg-gradient-to-b from-[rgba(0,0,0,0.9)] to-black;
+    @apply text-white min-h-screen bg-gradient-to-b from-[rgba(0,0,0,0.9)] to-black;
   }
 }

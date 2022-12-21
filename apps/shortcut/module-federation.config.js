@@ -4,8 +4,10 @@
  * @type {import('@nrwl/devkit').ModuleFederationConfig}
  **/
 const moduleFederationConfig = {
-  name: 'shell',
-  remotes: ['shortcut'],
+  name: 'shortcut',
+  exposes: {
+    './Module': './src/remote-entry.ts',
+  },
 };
 
 module.exports = moduleFederationConfig;
