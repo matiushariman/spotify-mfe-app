@@ -1,5 +1,5 @@
 import { Callback } from '../Callback';
-import { render } from '../../../../utils/testUtils';
+import { render } from '../../../utils/testUtils';
 
 const mockSetTokenFromUrlParams = jest.fn();
 
