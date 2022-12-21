@@ -2,6 +2,7 @@ import { Suspense, useEffect } from 'react';
 import NxWelcome from './nx-welcome';
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 
+import { Callback } from './pages/Callback';
 import { shouldLoginToSpotify, navigateToSpotify } from './app.utils';
 
 export const App = () => {
@@ -26,8 +27,8 @@ export const App = () => {
         </li>
       </ul>
       <Routes>
+        <Route path="/callback" element={<Callback />} />
         <Route path="/" element={<NxWelcome title="home" />} />
-        <Route path="/callback" element={<NxWelcome title="callback" />} />
       </Routes>
     </Suspense>
   );
