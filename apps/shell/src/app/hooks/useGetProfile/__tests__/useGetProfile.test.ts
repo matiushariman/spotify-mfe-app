@@ -2,7 +2,7 @@ import { useGetProfile } from '../index';
 
 import { renderHook, wrapper, waitFor } from '../../../utils/testUtils';
 
-describe('components/Header/hooks/useGetProfile', () => {
+describe('components/hooks/useGetProfile', () => {
   it('should return games response', async () => {
     const { result } = renderHook(() => useGetProfile(), {
       wrapper,
