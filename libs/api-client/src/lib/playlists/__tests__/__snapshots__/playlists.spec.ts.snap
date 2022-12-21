@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/playlists getCurrentUserPlaylists() should return user playlists data 1`] = `
+Object {
+  "href": "https://api.spotify.com/v1/me/shows?offset=0&limit=20
+",
+  "items": Array [
+    Object {
+      "collaborative": true,
+      "description": "string",
+      "external_urls": Object {
+        "spotify": "string",
+      },
+      "href": "string",
+      "id": "string",
+      "images": Array [
+        Object {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228",
+          "width": 300,
+        },
+      ],
+      "name": "string",
+      "owner": Object {
+        "display_name": "string",
+        "external_urls": Object {
+          "spotify": "string",
+        },
+        "followers": Object {
+          "href": "string",
+          "total": 0,
+        },
+        "href": "string",
+        "id": "string",
+        "type": "user",
+        "uri": "string",
+      },
+      "public": true,
+      "snapshot_id": "string",
+      "tracks": Object {
+        "href": "string",
+        "total": 0,
+      },
+      "type": "playlist",
+      "uri": "string",
+    },
+  ],
+  "limit": 20,
+  "next": "https://api.spotify.com/v1/me/shows?offset=1&limit=1",
+  "offset": 0,
+  "previous": "https://api.spotify.com/v1/me/shows?offset=1&limit=1",
+  "total": 4,
+}
+`;

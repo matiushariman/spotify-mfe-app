@@ -1,4 +1,7 @@
 import type { ApiErrorResponse } from '../../types/ApiErrorResponse.types';
+import type { Image } from '../../types/Images.type';
+import type { ExternalUrls } from '../../types/ExternalUrls.types';
+import type { Followers } from '../../types/Followers.types';
 
 /**
  * - {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-current-users-profile|API Reference - Get Current User Profile}
@@ -35,25 +38,11 @@ export interface GetCurrentUserProfileResponse {
   /**
    * - Known external URLs for this users.
    */
-  readonly external_urls: {
-    /**
-     * - The Spotify URL for the object.
-     */
-    spotify: string;
-  };
+  readonly external_urls: ExternalUrls;
   /**
    * - Information about the followers of the users.
    */
-  readonly followers: {
-    /**
-     * - This will always be set to null, as the Web API does not support it at the moment.
-     */
-    href: string | null;
-    /**
-     * - The total number of followers.
-     */
-    total: number;
-  };
+  readonly followers: Followers;
   /**
    * - A link to the Web API endpoint for this users.
    */
@@ -63,24 +52,11 @@ export interface GetCurrentUserProfileResponse {
    */
   readonly id: string;
   /**
-   * - The users's profile image.
+   * - The users' profile image.
    */
-  readonly images: {
-    /**
-     * - The source URL of the image.
-     */
-    readonly url: string;
-    /**
-     * - The image height in pixels.
-     */
-    readonly height: number;
-    /**
-     * - The image width in pixels.
-     */
-    readonly width: number;
-  }[];
+  readonly images: Image[];
   /**
-   * - The users's Spotify subscription level: "premium", "free", etc. (The subscription level "open" can be considered the same as "free".)
+   * - The users' Spotify subscription level: "premium", "free", etc. (The subscription level "open" can be considered the same as "free".)
    * - This field is only available when the current users has granted access to the users-read-private scope.
    */
   readonly product: 'open' | 'free' | 'premium';

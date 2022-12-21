@@ -2,11 +2,13 @@ import { rest } from 'msw';
 
 import { API_BASE_URL } from '../../../constants';
 
+import type { GetCurrentUserProfileResponse } from '../users.types';
+
 export const usersHandlers = [
   rest.get(`${API_BASE_URL}/v1/me`, (req, res, ctx) =>
     res(
       ctx.status(200),
-      ctx.json({
+      ctx.json<GetCurrentUserProfileResponse>({
         country: 'SG',
         display_name: 'Test Account',
         email: 'pottage.silt-0d@icloud.com',
