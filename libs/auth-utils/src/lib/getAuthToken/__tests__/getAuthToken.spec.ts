@@ -7,6 +7,15 @@ jest.mock('typescript-cookie', () => ({
     .mockReturnValueOnce('token'),
 }));
 
+jest.mock('crypto-js', () => ({
+  AES: {
+    decrypt: jest.fn().mockReturnValue('token'),
+  },
+  enc: {
+    Utf8: jest.fn().mockReturnValue(''),
+  },
+}));
+
 describe('getAuthToken()', () => {
   it('should return empty string if token is not found', () => {
     expect(getAuthToken()).toEqual('');
