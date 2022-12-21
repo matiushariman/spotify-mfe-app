@@ -1,4 +1,4 @@
-import { useGetProfile } from './hooks/useGetProfile';
+import { useGetProfile } from '../../hooks/useGetProfile';
 import { UserProfileChip } from './UserProfileChip';
 import { LoadingSpinner } from './LoadingSpinner';
 

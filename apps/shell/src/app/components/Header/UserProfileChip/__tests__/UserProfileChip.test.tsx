@@ -1,7 +1,7 @@
 import { render, screen } from '../../../../utils/testUtils';
 import { UserProfileChip } from '../UserProfileChip';
 
-jest.mock('../hooks/useGetProfile', () => ({
+jest.mock('../../../hooks/useGetProfile', () => ({
   useSelectProfile: jest
     .fn()
     .mockReturnValue({

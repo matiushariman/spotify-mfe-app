@@ -1,6 +1,6 @@
-import { useGetProfile } from '..';
+import { useGetProfile } from '../index';
 
-import { renderHook, wrapper, waitFor } from '../../../../../utils/testUtils';
+import { renderHook, wrapper, waitFor } from '../../../utils/testUtils';
 
 describe('components/Header/hooks/useGetProfile', () => {
   it('should return games response', async () => {

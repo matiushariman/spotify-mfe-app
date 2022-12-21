@@ -1,5 +1,5 @@
 import DefaultAvatar from './assets/default-avatar.jpg';
-import { useSelectProfile } from '../hooks/useGetProfile';
+import { useSelectProfile } from '../../../hooks/useGetProfile';
 
 export const UserProfileChip = () => {
   const user = useSelectProfile();
