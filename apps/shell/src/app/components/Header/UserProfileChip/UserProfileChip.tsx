@@ -1,4 +1,6 @@
 import DefaultAvatar from './assets/default-avatar.jpg';
+import { getGreetings, getFirstName } from './UserProfileChip.utils';
+
 import { useSelectProfile } from '../hooks/useGetProfile';
 
 export const UserProfileChip = () => {
@@ -10,18 +12,21 @@ export const UserProfileChip = () => {
   };
 
   return (
-    <span
-      aria-label="user profile"
-      className="bg-black rounded-full pt-1 pb-1 pl-1 pr-2 flex items-center"
-    >
+    <button className="bg-[#121212] hover:bg-black transition rounded-full pt-1 pb-1 pl-3 pr-1 flex items-center">
+      <p className="font-bold uppercase">
+        <span className="text-gray-300 font-medium text-sm normal-case">
+          {getGreetings()}
+          {', '}
+        </span>
+        {getFirstName(user?.display_name)}!
+      </p>
       <img
         src={img.src}
-        className="rounded-full mr-2"
-        width={24}
-        height={24}
+        className="rounded-full ml-2"
+        width={32}
+        height={32}
         alt={img.alt}
       />
-      <p className="text-sm">{user?.display_name}</p>
-    </span>
+    </button>
   );
 };
