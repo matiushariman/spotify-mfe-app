@@ -20,17 +20,21 @@ export const App = () => {
   }
 
   return (
-    <Suspense fallback={null}>
+    <div className="min-h-screen bg-gradient-to-b from-[rgba(0,0,0,0.6)] via-[0] to-[#121212] flex">
       <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
       </ul>
-      <Routes>
-        <Route path="/callback" element={<Callback />} />
-        <Route path="/" element={<NxWelcome title="home" />} />
-      </Routes>
-    </Suspense>
+      <div className="ml-[232px] w-full">
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/callback" element={<Callback />} />
+            <Route path="/" element={<NxWelcome title="home" />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </div>
   );
 };
 
