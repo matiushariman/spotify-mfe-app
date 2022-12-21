@@ -1,1 +1,1 @@
-export type SetAuthToken = (token: string) => void;
+export type SetAuthToken = (token: string, privateKey?: string) => void;

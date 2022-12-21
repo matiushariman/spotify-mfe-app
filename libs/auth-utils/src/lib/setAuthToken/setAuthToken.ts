@@ -1,8 +1,10 @@
 import { setCookie } from 'typescript-cookie';
+import * as CryptoJS from 'crypto-js';
 
 import type { SetAuthToken } from './setAuthToken.types';
 
 /**
- * - Store token in browser cookie
+ * - Store encrypted token in browser cookie
  */
-export const setAuthToken: SetAuthToken = (token) => setCookie('token', token);
+export const setAuthToken: SetAuthToken = (token, privateKey = 'private_key') =>
+  setCookie('token', CryptoJS.AES.encrypt(token, privateKey).toString());
