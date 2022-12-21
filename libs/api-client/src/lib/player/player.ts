@@ -28,9 +28,7 @@ export class PlayerApi {
    */
   async getRecentlyPlayedTracks() {
     return this.http
-      .get<GetRecentlyPlayedTracksResponse>(
-        '/me/player/recently-played?limit=3'
-      )
+      .get<GetRecentlyPlayedTracksResponse>('/me/player/recently-played')
       .then((res) => res)
       .catch((err: Error | AxiosError<GetRecentlyPlayedTracksError>) => {
         if (isAxiosError(err)) {
