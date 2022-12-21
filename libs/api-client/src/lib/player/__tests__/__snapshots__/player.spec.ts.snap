@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/player getRecentlyPlayedTracks() should return recenty played tracks data 1`] = `
+Object {
+  "cursors": Object {
+    "after": "string",
+  },
+  "href": "string",
+  "items": Array [
+    "",
+  ],
+  "limit": 0,
+  "next": "string",
+  "total": 0,
+}
+`;
