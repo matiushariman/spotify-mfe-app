@@ -1,20 +1,37 @@
-import * as React from 'react';
+import { Suspense, useEffect } from 'react';
 import NxWelcome from './nx-welcome';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
 
-export function App() {
+import { Callback } from './pages/Callback';
+import { shouldLoginToSpotify, navigateToSpotify } from './app.utils';
+
+export const App = () => {
+  const { pathname } = useLocation();
+  const isInactiveSession = shouldLoginToSpotify(pathname);
+
+  useEffect(() => {
+    if (isInactiveSession) {
+      navigateToSpotify();
+    }
+  }, [isInactiveSession]);
+
+  if (isInactiveSession) {
+    return null;
+  }
+
   return (
-    <React.Suspense fallback={null}>
+    <Suspense fallback={null}>
       <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
       </ul>
       <Routes>
-        <Route path="/" element={<NxWelcome title="shell" />} />
+        <Route path="/callback" element={<Callback />} />
+        <Route path="/" element={<NxWelcome title="home" />} />
       </Routes>
-    </React.Suspense>
+    </Suspense>
   );
-}
+};
 
 export default App;
