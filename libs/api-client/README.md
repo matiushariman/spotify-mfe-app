@@ -18,6 +18,18 @@ const usersApi = new UsersApi({ token: 'token' });
 | :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------- |
 | `getCurrentUserProfile()` | [Get Current User's Profile](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-current-users-profile) |
 
+#### PlaylistsApi
+
+```typescript
+import { PlaylistsApi } from '@spotify-mfe-app/api-client';
+
+const usersApi = new UsersApi({ token: 'token' });
+```
+
+| Method                      | Web API Reference                                                                                                                                |
+| :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `getCurrentUserPlaylists()` | [Get Current User's Playlists](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-a-list-of-current-users-playlists) |
+
 ## Running unit tests
 
 Run `yarn test:api-client` to execute the unit tests via [Jest](https://jestjs.io).
