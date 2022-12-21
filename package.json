@@ -14,7 +14,8 @@
     "lint:all": "nx run-many --target=lint",
     "lint:api-client": "yarn lint api-client",
     "lint:auth-utils": "yarn lint auth-utils",
-    "lint:shell": "yarn lint shell"
+    "lint:shell": "yarn lint shell",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -55,8 +56,10 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "8.0.2",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
+    "lint-staged": "13.1.0",
     "msw": "0.49.2",
     "nx": "15.3.3",
     "prettier": "^2.6.2",
