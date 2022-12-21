@@ -1,7 +1,8 @@
 import { Suspense, useEffect } from 'react';
 import NxWelcome from './nx-welcome';
-import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
+import { Navigation } from './components/Navigation';
 import { Callback } from './pages/Callback';
 import { shouldLoginToSpotify, navigateToSpotify } from './app.utils';
 
@@ -20,17 +21,17 @@ export const App = () => {
   }
 
   return (
-    <Suspense fallback={null}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-      </ul>
-      <Routes>
-        <Route path="/callback" element={<Callback />} />
-        <Route path="/" element={<NxWelcome title="home" />} />
-      </Routes>
-    </Suspense>
+    <div className="min-h-screen bg-gradient-to-b from-[rgba(0,0,0,0.6)] via-[0] to-[#121212] flex">
+      <Navigation />
+      <div className="ml-[232px] w-full">
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/callback" element={<Callback />} />
+            <Route path="/" element={<NxWelcome title="home" />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </div>
   );
 };
 
