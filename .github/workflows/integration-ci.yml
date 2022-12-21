@@ -8,11 +8,16 @@ on:
       - 'apps/**/*.ts'
       - 'libs/**/*.ts'
       - '.github/workflows/integration-ci.yml'
+      - '.github/workflows/reusable-setup.yml'
 
 jobs:
-  run-lint-and-test:
-    name: Run lint & unit tests
+  setup:
+    name: Setup dependencies
+    uses: ./.github/workflows/reusable-setup.yml
+  lint:
+    name: Run lint
     runs-on: ubuntu-latest
+    needs: setup
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -30,14 +35,33 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock.json') }}
           restore-keys: |
+            ${{ runner.os }}-modules-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock.json') }}
             ${{ runner.os }}-modules-${{ env.cache-name }}-
-            ${{ runner.os }}-modules-
-            ${{ runner.os }}-
-      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        name: Install dependencies
-        run: yarn install --frozen-lockfile
       - name: Run lint
         run: yarn lint:all
+  test:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-modules-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock.json') }}
+            ${{ runner.os }}-modules-${{ env.cache-name }}-
       - name: Run unit test
         run: yarn test:all
       - name: Upload coverage as artifact
@@ -48,7 +72,7 @@ jobs:
   upload-api-client-coverage:
     name: Upload API Client coverage to codecov
     runs-on: ubuntu-latest
-    needs: run-lint-and-test
+    needs: test
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -65,7 +89,7 @@ jobs:
   upload-auth-utils-coverage:
     name: Upload auth-utils coverage to codecov
     runs-on: ubuntu-latest
-    needs: run-lint-and-test
+    needs: test
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -79,4 +103,21 @@ jobs:
         with:
           files: '**/coverage/libs/auth-utils/coverage-final.json'
           flags: auth-utils
+  upload-shell-coverage:
+    name: Upload shell coverage to codecov
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Download coverage from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage
+          path: coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: '**/coverage/apps/shell/coverage-final.json'
+          flags: shell
 
