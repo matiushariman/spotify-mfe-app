@@ -7,7 +7,8 @@ export const NavigationList = () => (
     <NavigationListItem
       Icon={HomeIcon}
       label="Home"
-      data-testid="navigation-home"
+      to="/"
+      testId="navigation-home"
     />
   </ul>
 );

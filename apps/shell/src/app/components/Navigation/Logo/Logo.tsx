@@ -1,5 +1,5 @@
-import SpotifyLogo from './assets/Spotify_Logo_RGB_White.png';
+import SpotifyLogo from './assets/Spotify_Icon_RGB_Green.png';
 
 export const Logo = () => (
-  <img src={SpotifyLogo} alt="spotify" width={132} height={40} />
+  <img src={SpotifyLogo} alt="spotify" width={48} height={48} />
 );
