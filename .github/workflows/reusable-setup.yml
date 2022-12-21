@@ -2,7 +2,7 @@ on: workflow_call
 
 jobs:
   setup:
-    name: [reusable-setup.yml]
+    name: reusable-setup.yml
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
