@@ -12,8 +12,6 @@ describe('components/Header', () => {
     expect(screen.getByRole('status')).toBeVisible();
 
     //  user profile is displayed
-    await waitFor(() =>
-      expect(screen.getByLabelText(/user profile/i)).toBeVisible()
-    );
+    await waitFor(() => expect(screen.getByRole('button')).toBeVisible());
   });
 });
