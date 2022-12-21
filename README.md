@@ -58,6 +58,11 @@ NX_SPOTIFY_CLIENT_ID=[YOUR_SPOTIFY_APP_CLIENT_ID]
 
 # optional - set to http://localhost:4200/callback/ by default
 NX_SPOTIFY_REDIRECT_URI=[YOUR_SPOTIFY_APP_REDIRECT_URI]
+
+# optional BUT recommended - set to private_key by default
+# Since implicit grant flow (https://developer.spotify.com/documentation/general/guides/authorization/implicit-grant/) is used to authenticate user and OAuth token is stored in browser cookies
+# Encryption layer is added as an additional security effort.
+NX_TOKEN_PRIVATE_KEY=[TOKEN_PRIVATE_KEY]
 ```
 
 ## Running the application(s)
