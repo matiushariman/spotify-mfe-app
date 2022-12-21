@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import NxWelcome from './nx-welcome';
-import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import { Navigation } from './components/Navigation';
 import { Callback } from './pages/Callback';
