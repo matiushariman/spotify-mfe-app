@@ -12,7 +12,7 @@ on:
 jobs:
   setup:
     name: Setup dependencies
-    uses: ./github/workflows/reusable-setup.yml
+    uses: ./.github/workflows/reusable-setup.yml
   lint:
     name: Run lint
     runs-on: ubuntu-latest
