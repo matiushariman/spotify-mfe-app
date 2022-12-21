@@ -6,7 +6,7 @@ export const Header = () => {
   const { isLoading } = useGetProfile();
 
   return (
-    <div className="flex pl-6 pr-6 items-center h-[64px] justify-end">
+    <div className="flex pl-6 pr-6 items-center h-[72px] justify-end">
       {isLoading ? <LoadingSpinner /> : <UserProfileChip />}
     </div>
   );

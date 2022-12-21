@@ -1,18 +1,29 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import type { NavigationListItemProps } from './NavigationListItem.types';
 
 export const NavigationListItem = ({
   Icon,
   label,
-  ...rest
-}: NavigationListItemProps) => (
-  <li {...rest} className="pl-4 pr-4">
-    <Link to="/" className="block cursor-pointer flex items-center">
-      <div className="mr-4">
+  to = '/',
+  testId,
+}: NavigationListItemProps) => {
+  const { pathname } = useLocation();
+  const isActive = pathname === to;
+
+  return (
+    <li>
+      <Link
+        aria-label={label}
+        data-testid={testId}
+        aria-current={isActive ? 'page' : undefined}
+        to={to}
+        className={`${
+          isActive && 'border-r-4 border-r-[#1db954]'
+        } flex justify-around pt-2 pb-2`}
+      >
         <Icon width={28} height={28} />
-      </div>
-      <p className="text-sm">{label}</p>
-    </Link>
-  </li>
-);
+      </Link>
+    </li>
+  );
+};
