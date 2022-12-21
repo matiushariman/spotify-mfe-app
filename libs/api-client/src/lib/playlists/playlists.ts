@@ -2,7 +2,10 @@ import axios, { AxiosInstance, AxiosError, isAxiosError } from 'axios';
 
 import { API_BASE_URL } from '../../constants';
 
-import type { GetCurrentUserPlaylistsResponse } from './playlists.types';
+import type {
+  GetCurrentUserPlaylistsResponse,
+  GetCurrentUserPlaylistsError,
+} from './playlists.types';
 import type { ApiClassConstructor } from '../../types/ApiClassConstructor.types';
 
 export class PlaylistsApi {
@@ -27,7 +30,7 @@ export class PlaylistsApi {
     return this.http
       .get<GetCurrentUserPlaylistsResponse>('/me/playlists')
       .then((res) => res)
-      .catch((err: Error | AxiosError) => {
+      .catch((err: Error | AxiosError<GetCurrentUserPlaylistsError>) => {
         if (isAxiosError(err)) {
           return Promise.reject(err?.response?.data);
         }

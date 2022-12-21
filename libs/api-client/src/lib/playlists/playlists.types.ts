@@ -1,6 +1,7 @@
 import type { Image } from '../../types/Images.type';
 import type { ExternalUrls } from '../../types/ExternalUrls.types';
-import { Followers } from '../../types/Followers.types';
+import type { Followers } from '../../types/Followers.types';
+import type { ApiErrorResponse } from '../../types/ApiErrorResponse.types';
 
 interface PlaylistItem {
   /**
@@ -129,3 +130,5 @@ export interface GetCurrentUserPlaylistsResponse {
    */
   readonly total: number;
 }
+
+export type GetCurrentUserPlaylistsError = ApiErrorResponse;
