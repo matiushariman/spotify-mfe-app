@@ -8,7 +8,7 @@ describe('getSpotifyAuthUrl()', () => {
         redirectUri: 'http://localhost:4200/',
       })
     ).toMatchInlineSnapshot(
-      `"https://accounts.spotify.com/authorize?response_type=token&scope=user-read-private%20user-read-email&client_id=client&redirect_uri=http://localhost:4200/"`
+      `"https://accounts.spotify.com/authorize?response_type=token&scope=user-read-private%20user-read-email%20playlist-read-private&client_id=client&redirect_uri=http://localhost:4200/"`
     );
   });
 });

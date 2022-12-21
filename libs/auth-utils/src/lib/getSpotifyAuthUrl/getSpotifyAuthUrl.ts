@@ -4,7 +4,11 @@ export const getSpotifyAuthUrl = ({
   clientId,
 }: GetSpotifyAuthUrlParams) => {
   const authorizationUrl = 'https://accounts.spotify.com/authorize';
-  const scope = ['user-read-private', 'user-read-email'];
+  const scope = [
+    'user-read-private',
+    'user-read-email',
+    'playlist-read-private',
+  ];
 
   return `${authorizationUrl}?response_type=token&scope=${encodeURIComponent(
     scope.join(' ')
