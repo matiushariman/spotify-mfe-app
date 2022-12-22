@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, lazy } from 'react';
 import NxWelcome from './nx-welcome';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
@@ -6,6 +6,8 @@ import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
 import { Callback } from './pages/Callback';
 import { shouldLoginToSpotify, navigateToSpotify } from './app.utils';
+
+const Shortcut = lazy(() => import('shortcut/Module'));
 
 export const App = () => {
   const { pathname } = useLocation();
@@ -22,13 +24,18 @@ export const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[rgba(0,0,0,0.9)] to-black flex">
+    <div className="min-h-screen flex">
       <Navigation />
       <div className="ml-[80px] w-full">
         <Header />
+        <Suspense fallback={<p>Loading Shortcut app</p>}>
+          <div className="p-4 bg-gradient-to-r from-[#1db954] to-[#191414] text-black">
+            <Shortcut />
+          </div>
+        </Suspense>
         <Suspense fallback={null}>
           <Routes>
-            <Route path="/callback" element={<Callback />} />
+            <Route path="/callback" element={<Callback />} />\
             <Route path="/" element={<NxWelcome title="home" />} />
           </Routes>
         </Suspense>

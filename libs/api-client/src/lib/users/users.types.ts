@@ -1,4 +1,6 @@
 import type { ApiErrorResponse } from '../../types/ApiErrorResponse.types';
+import type { ExternalUrls } from '../../types/ExternalUrls.types';
+import type { Image } from '../../types/Image.types';
 
 /**
  * - {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-current-users-profile|API Reference - Get Current User Profile}
@@ -35,12 +37,7 @@ export interface GetCurrentUserProfileResponse {
   /**
    * - Known external URLs for this users.
    */
-  readonly external_urls: {
-    /**
-     * - The Spotify URL for the object.
-     */
-    spotify: string;
-  };
+  readonly external_urls: ExternalUrls;
   /**
    * - Information about the followers of the users.
    */
@@ -65,20 +62,7 @@ export interface GetCurrentUserProfileResponse {
   /**
    * - The users's profile image.
    */
-  readonly images: {
-    /**
-     * - The source URL of the image.
-     */
-    readonly url: string;
-    /**
-     * - The image height in pixels.
-     */
-    readonly height: number;
-    /**
-     * - The image width in pixels.
-     */
-    readonly width: number;
-  }[];
+  readonly images: Image[];
   /**
    * - The users's Spotify subscription level: "premium", "free", etc. (The subscription level "open" can be considered the same as "free".)
    * - This field is only available when the current users has granted access to the users-read-private scope.

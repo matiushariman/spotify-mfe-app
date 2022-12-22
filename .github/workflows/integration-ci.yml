@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'apps/**/*.ts'
+      - 'apps/**/*.{ts,tsx}'
       - 'libs/**/*.ts'
       - '.github/workflows/integration-ci.yml'
       - '.github/workflows/reusable-setup.yml'
@@ -120,4 +120,21 @@ jobs:
         with:
           files: '**/coverage/apps/shell/coverage-final.json'
           flags: shell
+  upload-shortcut-coverage:
+    name: Upload shortcut coverage to codecov
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Download coverage from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage
+          path: coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: '**/coverage/apps/shortcut/coverage-final.json'
+          flags: shortcut
 
