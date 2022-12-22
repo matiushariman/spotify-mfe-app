@@ -9,7 +9,10 @@ export const RecentlyPlayedList = () => {
   }
 
   return (
-    <div className="flex gap-4 overflow-auto w-full">
+    <div
+      aria-label="recently played tracks"
+      className="flex gap-4 overflow-auto w-full"
+    >
       {items.map((item) => (
         <RecentlyPlayedListItem
           key={item.track.id}

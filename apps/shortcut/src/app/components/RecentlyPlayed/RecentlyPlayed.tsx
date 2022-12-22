@@ -8,7 +8,11 @@ export const RecentlyPlayed = () => {
     <div className="grid gap-3">
       <p className="uppercase text-sm font-bold">Recently Played</p>
       <div className="h-[96px]">
-        {isLoading ? null : <RecentlyPlayedList />}
+        {isLoading ? (
+          <p>Loading recently played data...</p>
+        ) : (
+          <RecentlyPlayedList />
+        )}
       </div>
     </div>
   );
