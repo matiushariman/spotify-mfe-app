@@ -1,4 +1,4 @@
-import { RecentlyPlayedListItem } from './RecentlyPlayedListItem';
+import { TrackCard } from '../../UI/TrackCard';
 import { useSelectRecentlyPlayedItems } from '../../../hooks/useGetRecentlyPlayed';
 
 export const RecentlyPlayedList = () => {
@@ -14,11 +14,11 @@ export const RecentlyPlayedList = () => {
       className="flex gap-4 overflow-auto w-full"
     >
       {items.map((item) => (
-        <RecentlyPlayedListItem
+        <TrackCard
           key={item.track.id}
           album={item.track.album}
           name={item.track.name}
-          artists={item.track.artists}
+          artistName={item.track.artists[0].name}
         />
       ))}
     </div>
