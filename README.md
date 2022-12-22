@@ -4,11 +4,12 @@
   <thead>
     <tr>
       <th rowspan="2">Overall</th>
-      <th>MFE</th>
+      <th colspan="2">MFE</th>
       <th colspan="2">Libs</th>
     </tr>
     <tr>
       <th>Shell</th>
+      <th>Shortcut</th>
       <th>api-client</th>
       <th>auth-utils</th>
     </tr>
@@ -20,6 +21,9 @@
       </td>
       <td align="center">
         <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=shell" alt="shell coverage" />
+      </td>
+      <td align="center">
+        <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=shortcut" alt="shortcut coverage" />
       </td>
       <td align="center">
         <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=api-client" alt="api client coverage" />
@@ -48,7 +52,7 @@ git clone https://github.com/matiushariman/spotify-app.git
 yarn install
 ```
 
-Create a `.local.env` file inside `apps/shell` and add the variables below
+Create a `.local.env` file in the root folder and add the variables below
 
 ```shell
 # .local.env
