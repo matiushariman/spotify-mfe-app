@@ -27,7 +27,7 @@ interface GetRecentlyPlayedTracksItemTrackAlbum {
   readonly uri: string;
 }
 
-interface GetRecentlyPlayedTracksItemTrack {
+export interface GetRecentlyPlayedTracksItemTrack {
   readonly album: GetRecentlyPlayedTracksItemTrackAlbum;
   readonly artists: GetRecentlyPlayedTracksItemTrackArtist[];
   readonly available_markets: string[];

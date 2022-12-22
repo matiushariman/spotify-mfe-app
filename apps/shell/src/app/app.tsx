@@ -29,7 +29,9 @@ export const App = () => {
       <div className="ml-[80px] w-full">
         <Header />
         <Suspense fallback={<p>Loading Shortcut app</p>}>
-          <Shortcut />
+          <div className="p-4 bg-gradient-to-r from-[#1db954] to-[#191414] text-black">
+            <Shortcut />
+          </div>
         </Suspense>
         <Suspense fallback={null}>
           <Routes>
