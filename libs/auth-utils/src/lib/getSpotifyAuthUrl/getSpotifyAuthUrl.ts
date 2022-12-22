@@ -9,6 +9,8 @@ export const getSpotifyAuthUrl = ({
     'user-read-email',
     // Read access to a user’s recently played tracks.
     'user-read-recently-played',
+    // Read access to a user's top artists and tracks.
+    'user-top-read',
   ];
 
   return `${authorizationUrl}?response_type=token&scope=${encodeURIComponent(
