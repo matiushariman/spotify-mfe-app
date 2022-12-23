@@ -1,7 +1,6 @@
 export const getGreetings = () => {
   const currentTime = new Date().getHours();
 
-  console.log(currentTime);
   if (currentTime < 12) {
     return 'Good morning';
   } else if (currentTime < 18) {
