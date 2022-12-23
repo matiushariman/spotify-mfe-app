@@ -9,6 +9,7 @@ jest.mock('./app.utils', () => ({
     .mockReturnValueOnce(false)
     .mockReturnValueOnce(true)
     .mockReturnValueOnce(true),
+  shouldDisplayApp: jest.fn().mockReturnValue(true),
 }));
 
 describe('app', () => {
