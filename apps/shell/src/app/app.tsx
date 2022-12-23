@@ -1,5 +1,4 @@
 import { Suspense, useEffect, lazy } from 'react';
-import NxWelcome from './nx-welcome';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 import { Header } from './components/Header';
@@ -35,8 +34,7 @@ export const App = () => {
         </Suspense>
         <Suspense fallback={null}>
           <Routes>
-            <Route path="/callback" element={<Callback />} />\
-            <Route path="/" element={<NxWelcome title="home" />} />
+            <Route path="/callback" element={<Callback />} />
           </Routes>
         </Suspense>
       </div>

@@ -1,6 +1,9 @@
 import type { ApiErrorResponse } from '../../types/ApiErrorResponse.types';
 import type { ExternalUrls } from '../../types/ExternalUrls.types';
 import type { Image } from '../../types/Image.types';
+import type { Album } from '../../types/Album.types';
+import type { Artist } from '../../types/Artist.types';
+import type { ExternalIds } from '../../types/ExternalIds.types';
 
 /**
  * - {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-current-users-profile|API Reference - Get Current User Profile}
@@ -79,3 +82,70 @@ export interface GetCurrentUserProfileResponse {
 }
 
 export type GetCurrentUserProfileError = ApiErrorResponse;
+
+export interface GetUserTopItemsRequest {
+  /**
+   * - The type of entity to return. Valid values: artists or tracks
+   */
+  readonly type: 'artists' | 'tracks';
+  readonly query?: {
+    /**
+     * - The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.
+     */
+    readonly limit: number;
+  };
+}
+
+export interface UserTopTracks {
+  readonly album: Album;
+  readonly artists: Artist[];
+
+  readonly available_markets: string[];
+  readonly disc_number: number;
+  readonly duration_ms: number;
+  readonly explicit: boolean;
+  readonly external_ids: ExternalIds;
+  readonly external_urls: ExternalUrls;
+  readonly href: string;
+  readonly id: string;
+  readonly is_local: boolean;
+  readonly name: string;
+  readonly popularity: number;
+  readonly preview_url: string;
+  readonly track_number: number;
+  readonly type: 'track';
+  readonly uri: string;
+}
+
+/**
+ * - {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-users-top-artists-and-tracks|API Reference - Get User's Top Items}
+ */
+export interface GetUserTopItemsResponse {
+  readonly items: UserTopTracks[];
+  /**
+   * - A link to the Web API endpoint returning the full result of the request
+   */
+  readonly href: string;
+  /**
+   * - The maximum number of items in the response (as set in the query or by default).
+   */
+  readonly limit: number;
+  /**
+   * - URL to the next page of items. ( `null` if none)
+   */
+  readonly next: string | null;
+  /**
+   * - The offset of the items returned (as set in the query or by default)
+   */
+  readonly offset: number;
+  /**
+   * - URL to the previous page of items. ( `null` if none)
+   */
+  readonly previous: string | null;
+  /**
+   * - The total number of items available to return.
+   */
+  readonly total: number;
+}
+
+export type GetUserTopItemsError = ApiErrorResponse;

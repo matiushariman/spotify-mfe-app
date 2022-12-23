@@ -1,44 +1,19 @@
-import { ApiErrorResponse } from '../../types/ApiErrorResponse.types';
-import { ExternalUrls } from '../../types/ExternalUrls.types';
-import { Image } from '../../types/Image.types';
-
-interface GetRecentlyPlayedTracksItemTrackArtist {
-  readonly external_urls: ExternalUrls;
-  readonly href: string;
-  readonly id: string;
-  readonly name: string;
-  readonly type: 'artist';
-  readonly uri: string;
-}
-
-interface GetRecentlyPlayedTracksItemTrackAlbum {
-  readonly album_type: 'album';
-  readonly artists: GetRecentlyPlayedTracksItemTrackArtist[];
-  readonly available_markets: string[];
-  readonly external_urls: ExternalUrls;
-  readonly href: string;
-  readonly id: string;
-  readonly images: Image[];
-  readonly name: string;
-  readonly release_date: string;
-  readonly release_date_precision: 'day';
-  readonly total_tracks: number;
-  readonly type: 'album';
-  readonly uri: string;
-}
+import type { ApiErrorResponse } from '../../types/ApiErrorResponse.types';
+import type { ExternalUrls } from '../../types/ExternalUrls.types';
+import type { Artist } from '../../types/Artist.types';
+import type { Album } from '../../types/Album.types';
+import type { ExternalIds } from '../../types/ExternalIds.types';
 
 export interface GetRecentlyPlayedTracksItemTrack {
-  readonly album: GetRecentlyPlayedTracksItemTrackAlbum;
-  readonly artists: GetRecentlyPlayedTracksItemTrackArtist[];
+  readonly album: Album;
+  readonly artists: Artist[];
   readonly available_markets: string[];
   readonly disc_number: number;
   readonly duration_ms: number;
 
   readonly explicit: boolean;
 
-  readonly external_ids: {
-    readonly isrc: string;
-  };
+  readonly external_ids: ExternalIds;
   /**
    * - Known external URLs for this track.
    */
