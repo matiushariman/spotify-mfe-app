@@ -5,7 +5,7 @@ on:
     branches-ignore:
       - main
     paths:
-      - 'apps/shortcut/**/*.{ts,tsx}'
+      - 'apps/shortcut/**/*.tsx?'
       - '.github/workflows/shortcut-mfe-ci.yml'
       - '.github/workflows/reusable-setup.yml'
 

@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'apps/**/*.{ts,tsx}'
+      - 'apps/**/*.tsx?'
       - 'libs/**/*.ts'
       - '.github/workflows/integration-ci.yml'
       - '.github/workflows/reusable-setup.yml'
