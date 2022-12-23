@@ -1,5 +1,8 @@
 import { checkAuthToken, getSpotifyAuthUrl } from '@spotify-mfe-app/auth-utils';
 
+export const shouldDisplayApp = (pathname: string) =>
+  !pathname.includes('callback');
+
 export const shouldLoginToSpotify = (pathname: string) =>
   !checkAuthToken() && !pathname.includes('callback');
 
