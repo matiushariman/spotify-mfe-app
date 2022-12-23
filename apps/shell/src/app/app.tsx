@@ -4,13 +4,18 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
 import { Callback } from './pages/Callback';
-import { shouldLoginToSpotify, navigateToSpotify } from './app.utils';
+import {
+  shouldLoginToSpotify,
+  navigateToSpotify,
+  shouldDisplayApp,
+} from './app.utils';
 
 const Shortcut = lazy(() => import('shortcut/Module'));
 
 export const App = () => {
   const { pathname } = useLocation();
   const isInactiveSession = shouldLoginToSpotify(pathname);
+  const isAuthenticating = !shouldDisplayApp(pathname);
 
   useEffect(() => {
     if (isInactiveSession) {
@@ -26,12 +31,14 @@ export const App = () => {
     <div className="min-h-screen flex">
       <Navigation />
       <div className="ml-[80px] w-full">
-        <Header />
-        <Suspense fallback={<p>Loading Shortcut app</p>}>
-          <div className="p-4 bg-gradient-to-r from-[#1db954] to-[#191414] text-black">
-            <Shortcut />
-          </div>
-        </Suspense>
+        {!isAuthenticating && <Header />}
+        {!isAuthenticating && (
+          <Suspense fallback={<p>Loading Shortcut app</p>}>
+            <div className="p-4 bg-gradient-to-r from-[#1db954] to-[#191414] text-black">
+              <Shortcut />
+            </div>
+          </Suspense>
+        )}
         <Suspense fallback={null}>
           <Routes>
             <Route path="/callback" element={<Callback />} />
