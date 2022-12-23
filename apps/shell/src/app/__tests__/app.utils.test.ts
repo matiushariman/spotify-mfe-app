@@ -1,4 +1,8 @@
-import { shouldLoginToSpotify, navigateToSpotify } from '../app.utils';
+import {
+  shouldLoginToSpotify,
+  navigateToSpotify,
+  shouldDisplayApp,
+} from '../app.utils';
 
 const mockWindowReplace = jest.fn();
 
@@ -36,6 +40,16 @@ describe('app/app.utils', () => {
       navigateToSpotify();
 
       expect(mockWindowReplace).toHaveBeenCalled();
+    });
+  });
+
+  describe(shouldDisplayApp, () => {
+    it('should return true if pathname does not include "callback"', () => {
+      expect(shouldDisplayApp('hello')).toEqual(true);
+    });
+
+    it('should return false if pathname does include "callback"', () => {
+      expect(shouldDisplayApp('callback')).toEqual(false);
     });
   });
 });
