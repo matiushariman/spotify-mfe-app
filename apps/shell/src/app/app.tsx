@@ -31,13 +31,15 @@ export const App = () => {
     <div className="min-h-screen flex">
       <Navigation />
       <div className="ml-[80px] w-full">
-        {isAuthenticating && <Header />}
-        <Suspense fallback={null}>
-          <Routes>
-            <Route path="/callback" element={<Callback />} />
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </Suspense>
+        {!isAuthenticating && <Header />}
+        <div className="container mx-auto pt-6">
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/callback" element={<Callback />} />
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </Suspense>
+        </div>
       </div>
     </div>
   );
