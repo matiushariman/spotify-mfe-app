@@ -2,3 +2,5 @@
 // Example declare module 'about/Module';
 
 declare module 'shortcut/Module';
+
+declare module 'home/Module';

@@ -17,7 +17,8 @@
     "lint:auth-utils": "yarn lint auth-utils",
     "lint:shell": "yarn lint shell",
     "lint:shortcut": "yarn lint shortcut",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:mfe": "nx g @nrwl/react:remote --host=shell"
   },
   "private": true,
   "dependencies": {
