@@ -3,6 +3,7 @@ import type { ExternalUrls } from '../../types/ExternalUrls.types';
 import type { Artist } from '../../types/Artist.types';
 import type { Album } from '../../types/Album.types';
 import type { ExternalIds } from '../../types/ExternalIds.types';
+import type { Cursors } from '../../types/Cursors.types';
 
 export interface GetRecentlyPlayedTracksItemTrack {
   readonly album: Album;
@@ -56,12 +57,7 @@ export interface GetRecentlyPlayedTracksResponse {
   /**
    * - The cursors used to find the next set of items.
    */
-  readonly cursors: {
-    /**
-     * - The cursor to use as key to find the next page of items.
-     */
-    readonly after: string;
-  };
+  readonly cursors: Cursors;
 }
 
 export type GetRecentlyPlayedTracksError = ApiErrorResponse;

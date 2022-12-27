@@ -5,7 +5,7 @@
  **/
 const moduleFederationConfig = {
   name: 'shell',
-  remotes: ['shortcut', 'home'],
+  remotes: ['home'],
 };
 
 module.exports = moduleFederationConfig;

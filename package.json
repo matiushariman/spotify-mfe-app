@@ -11,7 +11,6 @@
     "test:api-client": "yarn test api-client",
     "test:auth-utils": "yarn test auth-utils",
     "test:shell": "yarn test shell",
-    "test:shortcut": "yarn test shortcut",
     "lint:all": "nx run-many --target=lint",
     "lint:api-client": "yarn lint api-client",
     "lint:auth-utils": "yarn lint auth-utils",

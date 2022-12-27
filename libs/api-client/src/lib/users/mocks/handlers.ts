@@ -5,6 +5,7 @@ import { API_BASE_URL } from '../../../constants';
 import type {
   GetCurrentUserProfileResponse,
   GetUserTopItemsResponse,
+  GetFollowedArtistsResponse,
 } from '../users.types';
 
 const mockGetCurrentUserProfileResponse: GetCurrentUserProfileResponse = {
@@ -285,6 +286,59 @@ const mockGetUserTopTracksResponse: GetUserTopItemsResponse = {
   total: 4,
 };
 
+const mockGetFollowedArtists: GetFollowedArtistsResponse = {
+  artists: {
+    items: [
+      {
+        external_urls: {
+          spotify: 'https://open.spotify.com/artist/6k0IBR0lU42s2GYpNX7kA9',
+        },
+        followers: {
+          href: null,
+          total: 1342132,
+        },
+        genres: [
+          'contemporary r&b',
+          'dance pop',
+          'neo soul',
+          'quiet storm',
+          'r&b',
+          'urban contemporary',
+        ],
+        href: 'https://api.spotify.com/v1/artists/6k0IBR0lU42s2GYpNX7kA9',
+        id: '6k0IBR0lU42s2GYpNX7kA9',
+        images: [
+          {
+            height: 640,
+            url: 'https://i.scdn.co/image/ab6761610000e5ebccd9085c5dbc5f5a991ae59c',
+            width: 640,
+          },
+          {
+            height: 320,
+            url: 'https://i.scdn.co/image/ab67616100005174ccd9085c5dbc5f5a991ae59c',
+            width: 320,
+          },
+          {
+            height: 160,
+            url: 'https://i.scdn.co/image/ab6761610000f178ccd9085c5dbc5f5a991ae59c',
+            width: 160,
+          },
+        ],
+        name: 'Brian McKnight',
+        popularity: 63,
+        type: 'artist',
+        uri: 'spotify:artist:6k0IBR0lU42s2GYpNX7kA9',
+      },
+    ],
+    next: null,
+    total: 0,
+    cursors: {
+      after: null,
+    },
+    limit: 20,
+    href: 'https://api.spotify.com/v1/me/following?type=artist&limit=20',
+  },
+};
 export const usersHandlers = [
   rest.get(`${API_BASE_URL}/v1/me`, (req, res, ctx) =>
     res(
@@ -296,6 +350,12 @@ export const usersHandlers = [
     res(
       ctx.status(200),
       ctx.json<GetUserTopItemsResponse>(mockGetUserTopTracksResponse)
+    )
+  ),
+  rest.get(`${API_BASE_URL}/v1/me/following`, (req, res, ctx) =>
+    res(
+      ctx.status(200),
+      ctx.json<GetFollowedArtistsResponse>(mockGetFollowedArtists)
     )
   ),
 ];

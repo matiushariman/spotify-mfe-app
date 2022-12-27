@@ -20,4 +20,13 @@ describe('lib/users', () => {
       expect(res.data).toMatchSnapshot();
     });
   });
+
+  describe(usersApi.getFollowedArtists, () => {
+    it('should return following artists', async () => {
+      const res = await usersApi.getFollowedArtists();
+
+      expect(res.status).toEqual(200);
+      expect(res.data).toMatchSnapshot();
+    });
+  });
 });

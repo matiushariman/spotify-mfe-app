@@ -8,6 +8,8 @@ import type {
   GetCurrentUserProfileError,
   GetUserTopItemsRequest,
   GetUserTopItemsError,
+  GetFollowedArtistsResponse,
+  GetFollowedArtistsError,
 } from './users.types';
 import type { ApiClassConstructor } from '../../types/ApiClassConstructor.types';
 
@@ -51,6 +53,23 @@ export class UsersApi {
       .get(`/me/top/${type}${constructGetUserTopItemsQuery(query)}`)
       .then((res) => res)
       .catch((err: Error | AxiosError<GetUserTopItemsError>) => {
+        if (isAxiosError(err)) {
+          return Promise.reject(err?.response?.data);
+        }
+
+        return Promise.reject(err);
+      });
+  }
+
+  /**
+   * Get the current user's top artists or tracks based on calculated affinity.
+   * - {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-users-top-artists-and-tracks|API Reference - Get User's Top Items}
+   */
+  async getFollowedArtists() {
+    return this.http
+      .get<GetFollowedArtistsResponse>('/me/following?type=artist')
+      .then((res) => res)
+      .catch((err: Error | AxiosError<GetFollowedArtistsError>) => {
         if (isAxiosError(err)) {
           return Promise.reject(err?.response?.data);
         }
