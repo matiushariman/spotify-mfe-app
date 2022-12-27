@@ -12,7 +12,7 @@ export default {
   collectCoverage: true,
   collectCoverageFrom: [
     './src/app/**',
-    '!./src/**/index.{ts|js}',
+    '!./src/**/index.ts{ts|js}',
     '!./src/app/**/*.{spec|test}.{ts|tsx|js}.*',
   ],
   coverageReporters: ['json', ['text', { skipFull: true }]],

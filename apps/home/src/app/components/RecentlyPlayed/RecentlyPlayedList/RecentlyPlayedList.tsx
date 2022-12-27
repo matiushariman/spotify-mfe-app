@@ -1,5 +1,5 @@
-import { RecentlyPlayedListItem } from './RecentlyPlayedListItem';
 import { useSelectRecentlyPlayedItems } from '../../../hooks/useGetRecentlyPlayed';
+import { TrackCard } from '../../ui/TrackCard';
 
 export const RecentlyPlayedList = () => {
   const recentlyPlayed = useSelectRecentlyPlayedItems();
@@ -9,9 +9,9 @@ export const RecentlyPlayedList = () => {
   }
 
   return (
-    <div className="grid grid-cols-6" aria-label="recently played tracks">
+    <div className="grid grid-cols-6 gap-4" aria-label="recently played tracks">
       {recentlyPlayed.map((recentlyPlayedItem) => (
-        <RecentlyPlayedListItem
+        <TrackCard
           name={recentlyPlayedItem.track.name}
           artistName={recentlyPlayedItem.track.artists[0].name}
           album={recentlyPlayedItem.track.album}
