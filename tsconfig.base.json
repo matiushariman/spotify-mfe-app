@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@spotify-mfe-app/api-client": ["libs/api-client/src/index.ts"],
-      "@spotify-mfe-app/auth-utils": ["libs/auth-utils/src/index.ts"]
+      "@spotify-mfe-app/auth-utils": ["libs/auth-utils/src/index.ts"],
+      "@spotify-mfe-app/playback-sdk": ["libs/playback-sdk/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
