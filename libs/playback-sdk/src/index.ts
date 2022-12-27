@@ -1,1 +1,1 @@
-export * from './lib/playback-sdk';
+export * from './lib';
