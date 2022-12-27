@@ -8,6 +8,7 @@ export const TrackCard = ({ name, artistName, album }: TrackCardProps) => (
       src={album.images[0].url}
       alt={album.name}
       className="rounded-md w-full"
+      loading="lazy"
     />
     <div>
       <p className="font-bold text-white">{displayTrackName(name)}</p>

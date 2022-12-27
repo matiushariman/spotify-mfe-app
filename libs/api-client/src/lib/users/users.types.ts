@@ -143,7 +143,7 @@ export interface GetUserTopItemsResponse {
 
 export type GetUserTopItemsError = ApiErrorResponse;
 
-interface FollowedArtist {
+export interface FollowedArtist {
   readonly name: string;
   readonly popularity: number;
   readonly type: 'artist';

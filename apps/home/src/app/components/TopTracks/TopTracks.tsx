@@ -7,7 +7,9 @@ export const TopTracks = () => {
   return (
     <div className="grid gap-5">
       <p className="font-bold text-xl">Top Tracks</p>
-      {isLoading ? <p>Loading your top tracks...</p> : <TopTracksList />}
+      <div className="h-[307px]">
+        {isLoading ? <p>Loading your top tracks...</p> : <TopTracksList />}
+      </div>
     </div>
   );
 };

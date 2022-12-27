@@ -32,14 +32,14 @@ export const App = () => {
       <Navigation />
       <div className="ml-[80px] w-full">
         {!isAuthenticating && <Header />}
-        <div className="container mx-auto pt-6">
+        <main>
           <Suspense fallback={null}>
             <Routes>
               <Route path="/callback" element={<Callback />} />
               <Route path="/" element={<Home />} />
             </Routes>
           </Suspense>
-        </div>
+        </main>
       </div>
     </div>
   );
