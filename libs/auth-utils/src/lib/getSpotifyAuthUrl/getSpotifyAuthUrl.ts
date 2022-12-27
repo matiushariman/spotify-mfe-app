@@ -13,6 +13,10 @@ export const getSpotifyAuthUrl = ({
     'user-top-read',
     // Read access to the list of artists and other users that the user follows.
     'user-follow-read',
+    // Control playback of a Spotify track. This scope is currently available to the Web Playback SDK. The user must have a Spotify Premium account.
+    'streaming',
+    // Read access to a user’s player state.
+    'user-read-playback-state',
   ];
 
   return `${authorizationUrl}?response_type=token&scope=${encodeURIComponent(
