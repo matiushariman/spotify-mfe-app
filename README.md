@@ -9,7 +9,7 @@
     </tr>
     <tr>
       <th>Shell</th>
-      <th>Shortcut</th>
+      <th>Home</th>
       <th>api-client</th>
       <th>auth-utils</th>
     </tr>
@@ -23,7 +23,7 @@
         <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=shell" alt="shell coverage" />
       </td>
       <td align="center">
-        <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=shortcut" alt="shortcut coverage" />
+        <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=home" alt="home coverage" />
       </td>
       <td align="center">
         <img src="https://codecov.io/gh/matiushariman/spotify-mfe-app/branch/main/graph/badge.svg?flag=api-client" alt="api client coverage" />

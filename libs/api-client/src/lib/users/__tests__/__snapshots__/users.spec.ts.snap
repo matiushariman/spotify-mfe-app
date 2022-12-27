@@ -25,6 +25,62 @@ Object {
 }
 `;
 
+exports[`lib/users getFollowedArtists should return following artists 1`] = `
+Object {
+  "artists": Object {
+    "cursors": Object {
+      "after": null,
+    },
+    "href": "https://api.spotify.com/v1/me/following?type=artist&limit=20",
+    "items": Array [
+      Object {
+        "external_urls": Object {
+          "spotify": "https://open.spotify.com/artist/6k0IBR0lU42s2GYpNX7kA9",
+        },
+        "followers": Object {
+          "href": null,
+          "total": 1342132,
+        },
+        "genres": Array [
+          "contemporary r&b",
+          "dance pop",
+          "neo soul",
+          "quiet storm",
+          "r&b",
+          "urban contemporary",
+        ],
+        "href": "https://api.spotify.com/v1/artists/6k0IBR0lU42s2GYpNX7kA9",
+        "id": "6k0IBR0lU42s2GYpNX7kA9",
+        "images": Array [
+          Object {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab6761610000e5ebccd9085c5dbc5f5a991ae59c",
+            "width": 640,
+          },
+          Object {
+            "height": 320,
+            "url": "https://i.scdn.co/image/ab67616100005174ccd9085c5dbc5f5a991ae59c",
+            "width": 320,
+          },
+          Object {
+            "height": 160,
+            "url": "https://i.scdn.co/image/ab6761610000f178ccd9085c5dbc5f5a991ae59c",
+            "width": 160,
+          },
+        ],
+        "name": "Brian McKnight",
+        "popularity": 63,
+        "type": "artist",
+        "uri": "spotify:artist:6k0IBR0lU42s2GYpNX7kA9",
+      },
+    ],
+    "limit": 20,
+    "next": null,
+    "total": 0,
+  },
+}
+`;
+
 exports[`lib/users getUserTopItems should return user top tracks 1`] = `
 Object {
   "href": "https://api.spotify.com/v1/me/shows?offset=0&limit=20

@@ -4,6 +4,8 @@ import type { Image } from '../../types/Image.types';
 import type { Album } from '../../types/Album.types';
 import type { Artist } from '../../types/Artist.types';
 import type { ExternalIds } from '../../types/ExternalIds.types';
+import type { Cursors } from '../../types/Cursors.types';
+import type { Followers } from '../../types/Followers.types';
 
 /**
  * - {@link https://developer.spotify.com/documentation/web-api/reference/#/operations/get-current-users-profile|API Reference - Get Current User Profile}
@@ -44,16 +46,7 @@ export interface GetCurrentUserProfileResponse {
   /**
    * - Information about the followers of the users.
    */
-  readonly followers: {
-    /**
-     * - This will always be set to null, as the Web API does not support it at the moment.
-     */
-    href: string | null;
-    /**
-     * - The total number of followers.
-     */
-    total: number;
-  };
+  readonly followers: Followers;
   /**
    * - A link to the Web API endpoint for this users.
    */
@@ -149,3 +142,44 @@ export interface GetUserTopItemsResponse {
 }
 
 export type GetUserTopItemsError = ApiErrorResponse;
+
+export interface FollowedArtist {
+  readonly name: string;
+  readonly popularity: number;
+  readonly type: 'artist';
+  readonly uri: string;
+  readonly href: string;
+  readonly id: string;
+  readonly external_urls: ExternalUrls;
+  readonly followers: Followers;
+
+  readonly genres: string[];
+
+  readonly images: Image[];
+}
+export interface GetFollowedArtistsResponse {
+  readonly artists: {
+    /**
+     * - A link to the Web API endpoint returning the full result of the request.
+     */
+    readonly href: string;
+    /**
+     * - The maximum number of items in the response (as set in the query or by default).
+     */
+    readonly limit: number;
+    /**
+     * - URL to the next page of items. ( `null` if none)
+     */
+    readonly next: string | null;
+
+    readonly cursors: Cursors;
+    /**
+     * - The total number of items available to return.
+     */
+    readonly total: number;
+
+    readonly items: FollowedArtist[];
+  };
+}
+
+export type GetFollowedArtistsError = ApiErrorResponse;

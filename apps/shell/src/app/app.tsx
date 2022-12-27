@@ -10,7 +10,7 @@ import {
   shouldDisplayApp,
 } from './app.utils';
 
-const Shortcut = lazy(() => import('shortcut/Module'));
+const Home = lazy(() => import('home/Module'));
 
 export const App = () => {
   const { pathname } = useLocation();
@@ -32,18 +32,14 @@ export const App = () => {
       <Navigation />
       <div className="ml-[80px] w-full">
         {!isAuthenticating && <Header />}
-        {!isAuthenticating && (
-          <Suspense fallback={<p>Loading Shortcut app</p>}>
-            <div className="p-4 bg-gradient-to-r from-[#1db954] to-[#191414] text-black">
-              <Shortcut />
-            </div>
+        <main>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/callback" element={<Callback />} />
+              <Route path="/" element={<Home />} />
+            </Routes>
           </Suspense>
-        )}
-        <Suspense fallback={null}>
-          <Routes>
-            <Route path="/callback" element={<Callback />} />
-          </Routes>
-        </Suspense>
+        </main>
       </div>
     </div>
   );
